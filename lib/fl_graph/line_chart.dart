@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-// import 'package:graph/resource/app_resourse.dart';
 import 'package:graph1/resources/resources.dart';
 
 class _LineChartsamp extends StatefulWidget {
@@ -15,9 +14,15 @@ class _LineChartsamp extends StatefulWidget {
 class _LineChartsampState extends State<_LineChartsamp> {
   @override
   Widget build(BuildContext context) {
-    return LineChart(
-      widget.isShowingMainData ? sampleData1 : sampleData2,
-      duration: const Duration(milliseconds: 250),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Container(
+        width: 1500,     //we have to give some width here in order to make it scrollable
+        child: LineChart(
+          widget.isShowingMainData ? sampleData1 : sampleData2,
+          duration: const Duration(milliseconds: 250),
+        ),
+      ),
     );
   }
 
@@ -33,7 +38,7 @@ class _LineChartsampState extends State<_LineChartsamp> {
         borderData: borderData,
         lineBarsData: lineBarsData1,
         minX: 0,
-        maxX: 14,
+        maxX: 11.5,
         maxY: 6,
         minY: 0,
       );
@@ -43,9 +48,9 @@ class _LineChartsampState extends State<_LineChartsamp> {
         gridData: gridData,
         titlesData: titlesData2,
         borderData: borderData,
-        lineBarsData: lineBarsData2,
+        lineBarsData: lineBarsData1,
         minX: 0,
-        maxX: 14,
+        maxX: 11,
         maxY: 6,
         minY: 0,
       );
@@ -53,7 +58,6 @@ class _LineChartsampState extends State<_LineChartsamp> {
   LineTouchData get lineTouchData1 => LineTouchData(
         handleBuiltInTouches: true,
         touchTooltipData: LineTouchTooltipData(
-          // maxContentWidth: 7,
           fitInsideVertically: true,
           tooltipBgColor: Color(0xff292932).withOpacity(0.8),
         ),
@@ -99,11 +103,11 @@ class _LineChartsampState extends State<_LineChartsamp> {
         ),
       );
 
-  List<LineChartBarData> get lineBarsData2 => [
-        // lineChartBarData2_1,
-        // lineChartBarData2_2,
-        // lineChartBarData2_3,
-      ];
+  // List<LineChartBarData> get lineBarsData2 => [
+  //       // lineChartBarData2_1,
+  //       // lineChartBarData2_2,
+  //       // lineChartBarData2_3,
+  //     ];
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
@@ -144,6 +148,8 @@ class _LineChartsampState extends State<_LineChartsamp> {
         reservedSize: 55,
       );
 
+      //x-axis
+
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
       fontWeight: FontWeight.normal,
@@ -155,37 +161,37 @@ class _LineChartsampState extends State<_LineChartsamp> {
       case 0:
         text = const Text('Jan', style: style);
         break;
-      case 2:
+      case 1:
         text = const Text('feb', style: style);
         break;
-      case 4:
+      case 2:
         text = const Text('mar', style: style);
         break;
-      case 6:
+      case 3:
         text = const Text('Apr', style: style);
         break;
-      case 8:
+      case 4:
         text = const Text('May', style: style);
         break;
-      case 10:
+      case 5:
         text = const Text('jun', style: style);
         break;
-      case 12:
+      case 6:
         text = const Text('jul', style: style);
         break;
-      case 14:
+      case 7:
         text = const Text('Aug', style: style);
         break;
-      case 16:
+      case 8:
         text = const Text('sep', style: style);
         break;
-      case 18:
+      case 9:
         text = const Text('Oct', style: style);
         break;
-      case 20:
+      case 10:
         text = const Text('Nov', style: style);
         break;
-      case 22:
+      case 11:
         text = const Text('Dec', style: style);
         break;
       default:
@@ -257,9 +263,22 @@ class _LineChartsampState extends State<_LineChartsamp> {
           FlSpot(9, 3),
           FlSpot(10, 2.5),
           FlSpot(11, 3),
-          FlSpot(12, 4),
-           FlSpot(13, 5.1),
-           FlSpot(14, 5.5),
+          // FlSpot(12, 4),
+          // FlSpot(13, 5.1),
+          // FlSpot(14, 5.5),
+
+          // FlSpot(15, 5.9),
+          // FlSpot(16, 4),
+          // FlSpot(17, 5.5),
+          // FlSpot(18, 4),
+          // FlSpot(19, 4.5),
+          // FlSpot(20, 3.7),
+          // FlSpot(21, 3),
+          // FlSpot(22, 2.5),
+          // FlSpot(23, 3),
+          // FlSpot(12, 4),
+          //  FlSpot(13, 5.1),
+          //  FlSpot(14, 5.5),
         ],
       );
 }
